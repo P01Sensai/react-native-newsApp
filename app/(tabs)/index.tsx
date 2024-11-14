@@ -3,6 +3,7 @@ import React from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import Topheader from '@/components/Topheader'
+import Searchbar from '@/components/Searchbar'
 
 type Props = {}
 
@@ -12,6 +13,7 @@ const Page = (props: Props) => {
     <View style={[styles.container, {paddingTop:safeTop}]}>
       
       <Topheader />
+      <Searchbar />
     </View>
   )
 }
