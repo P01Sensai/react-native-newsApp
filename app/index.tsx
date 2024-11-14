@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View, ImageBackground, StatusBar } from "react-native";
+ import { StyleSheet, Text, TouchableOpacity, View, ImageBackground, StatusBar } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
