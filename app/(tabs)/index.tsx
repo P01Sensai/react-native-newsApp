@@ -6,6 +6,8 @@ import Topheader from '@/components/Topheader'
 import Searchbar from '@/components/Searchbar'
 import axios from 'axios'
 import { NewsDataType } from '@/types'
+import BreakingNews from '@/components/breakingNews'
+
 
 type Props = {}
 
@@ -34,12 +36,15 @@ const Page = (props: Props) => {
       
       <Topheader />
       <Searchbar />
-
-      {breakingNews.map((item, index) => (
+      <BreakingNews newsList={breakingNews}/>
+      
+      
+      {/* // here we are checking the breaking news data is coming or not */}
+      {/* {breakingNews.map((item, index) => (
         <Text>
           {item.title}
         </Text>
-      ))}
+      ))} */}
     </View>
   )
 }

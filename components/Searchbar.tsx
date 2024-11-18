@@ -26,14 +26,15 @@ export default Searchbar
 const styles = StyleSheet.create({
     container:{
         marginHorizontal: 20,
+        marginBottom: 20,
     },
     searchbar:{
         flexDirection: 'row',
         backgroundColor: '#E4E4E4',
         alignItems: 'center',
         gap: 10,
-        paddingHorizontal: 10,
-        paddingVertical: 10,
+        paddingHorizontal: 12,
+        paddingVertical: 5,
         borderRadius: 10,
         
 
