@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   itemWrapper: {
     
     position: 'relative', // what it does that it will make the image and the background in the same position
-    width: width - 4.5  ,
+    width: width  ,
     justifyContent: 'center',
     alignItems: 'center',
   },
