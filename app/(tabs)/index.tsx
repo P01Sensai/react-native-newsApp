@@ -6,7 +6,8 @@ import Topheader from '@/components/Topheader'
 import Searchbar from '@/components/Searchbar'
 import axios from 'axios'
 import { NewsDataType } from '@/types'
-import BreakingNews from '@/components/breakingNews'
+import BreakingNews from '@/components/BreakingNews'
+
 
 
 type Props = {}
@@ -23,6 +24,8 @@ const Page = (props: Props) => {
     try {
       const URL = `https://newsdata.io/api/1/news?apikey=${process.env.EXPO_PUBLIC_API_KEY}&country=in&language=en&image=1&removeduplicate=1&size=5`
       const response = await axios .get(URL)
+      // checking the response
+      //console.log('Response', response)
 
       if(response && response.data){
         setBreakingNews(response.data.results);
@@ -36,7 +39,9 @@ const Page = (props: Props) => {
       
       <Topheader />
       <Searchbar />
-      <BreakingNews newsList={breakingNews}/>
+      <BreakingNews newsList={breakingNews} />
+      {/* <BreakingNews newsList={breakingNews}/> */}
+      {/* <BreakingNews newsList={breakingNews}/> */}
       
       
       {/* // here we are checking the breaking news data is coming or not */}
