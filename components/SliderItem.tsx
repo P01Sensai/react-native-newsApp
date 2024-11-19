@@ -14,7 +14,7 @@ type Props = {
 const { width } = Dimensions.get('screen');
 
 const SliderItem = ({ slideItem, index, scrollX }: Props) => {
-  console.log('Rendering SliderItem with:', slideItem, index, scrollX)
+  
   const rnStyle = useAnimatedStyle(() => {
     return {
       transform: [
@@ -41,7 +41,7 @@ const SliderItem = ({ slideItem, index, scrollX }: Props) => {
 
 
   return (
-    <Animated.View style={[styles.itemWrapper, rnStyle]}>
+    <Animated.View style={[styles.itemWrapper, rnStyle]} key={slideItem.article_id}>
       <Image source={{ uri: slideItem.image_url }} style={styles.image} />
       <LinearGradient colors={['transparent', 'rgba(0,0,0,0.8)']} style={styles.background}>
         <View style={styles.srcInfo}>
@@ -61,8 +61,8 @@ export default SliderItem
 const styles = StyleSheet.create({
   itemWrapper: {
     
-    position: 'relative',
-    width: width,
+    position: 'relative', // what it does that it will make the image and the background in the same position
+    width: width - 4.5  ,
     justifyContent: 'center',
     alignItems: 'center',
   },

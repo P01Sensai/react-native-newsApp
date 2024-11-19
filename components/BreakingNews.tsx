@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Colors } from '@/constants/Colors'
 import Animated, { useAnimatedRef, useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated'
@@ -8,6 +8,9 @@ import SliderItem from '@/components/SliderItem'
 type Props = {
     newsList: Array<NewsDataType>
 }
+const { width } = Dimensions.get('screen')
+const ITEM_WIDTH = width - 5 // Adjust the width to make space for the previous and next slides
+const ITEM_MARGIN = (width - ITEM_WIDTH) / 2
 
 const BreakingNews = ({newsList}: Props) => {
     const ref = useAnimatedRef<Animated.FlatList<any>>()
@@ -34,6 +37,7 @@ const BreakingNews = ({newsList}: Props) => {
                     showsHorizontalScrollIndicator={false} 
                     pagingEnabled 
                     onScroll={onScrollHandler} scrollEventThrottle={16}
+                    contentContainerStyle={styles.flatListContent}
                     />
       </View>
     </View>
@@ -59,6 +63,10 @@ const styles = StyleSheet.create({
         // flex: 1,
         justifyContent: 'center'
     },
+    flatListContent: {
+        paddingHorizontal: 15,
+      },
+
 
 
 })
