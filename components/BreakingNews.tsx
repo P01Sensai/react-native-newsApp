@@ -117,6 +117,9 @@ const BreakingNews = ({ newsList }: Props) => {
                     //     setData(newData);
                     // }}
 
+                     viewabilityConfigCallbackPairs={
+                        viewabilityConfigCallbackPairs.current
+                    }
 
                     onScrollBeginDrag={() => {
                         setIsAutoPlay(false);
@@ -164,7 +167,7 @@ const BreakingNews = ({ newsList }: Props) => {
                 /> */}
 
 
-                {/* <Pagination items={newsList} scrollX={scrollX} paginationIndex={paginationIndex} /> */}
+                <Pagination items={newsList} scrollX={scrollX} paginationIndex={paginationIndex} />
 
 
             </View>
