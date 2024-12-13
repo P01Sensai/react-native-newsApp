@@ -37,13 +37,13 @@ const SliderItem = ({ slideItem, index, scrollX }: Props) => {
       ],
 
     };
-  });
+  });  
 
 
   return (
     <Animated.View style={[styles.itemWrapper, rnStyle]} key={slideItem.article_id}>
       <Image source={{ uri: slideItem.image_url }} style={styles.image} />
-      <LinearGradient colors={['transparent', 'rgba(0,0,0,0.8)']} style={styles.background}>
+      <LinearGradient colors={["transparent", 'rgba(0,0,0,0.8)']} style={styles.background}>
         <View style={styles.srcInfo}>
           {slideItem.source_icon && (
             <Image source={{ uri: slideItem.source_icon }} style={styles.srcIcon} />
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: width - 60,
+    width: width -60,
     height: 180,
     borderRadius: 20,
   },
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     width: width - 60,
     height: 180,
     borderRadius: 20,
-    padding: 15,
+    padding: 20,
   },
   srcIcon: {
     width: 25,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     position: 'absolute',
     top: 85,
-    padding: 15,
+    paddingHorizontal: 20,
     alignItems: 'center',
     gap: 10,
   },
@@ -105,8 +105,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.white,
     position: 'absolute',
-    top: 130,
-    paddingHorizontal: 15,
+    top: 120,
+    paddingHorizontal: 20,
+    fontWeight: '600',
   },
 
-})
+});

@@ -15,7 +15,7 @@ const header = (props:Props) => {
                 />
                 <View style={{gap:3}}>
                     <Text style={styles.welcome}>Welcome</Text>
-                    <Text style={styles.username}>John Doe!</Text>
+                    <Text style={styles.username}>Pramanshu!</Text>
                 </View>
 
             </View>
