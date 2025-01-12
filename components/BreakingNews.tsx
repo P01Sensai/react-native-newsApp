@@ -96,6 +96,8 @@ const BreakingNews = ({ newsList }: Props) => {
                 pagingEnabled
                 
                 /> */}
+
+
                 <Animated.FlatList
                     ref={ref}
                     data={data}

@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, GestureResponderEvent } from "react-native";
 import React, { useEffect } from "react";
 import { icon } from "@/constants/Icons";
 import Animated, {
@@ -16,8 +16,8 @@ const TabBarButton = ({
   routeName,
   label,
 }: {
-  onPress: Function;
-  onLongPress: Function;
+  onPress: (event: GestureResponderEvent) => void;
+  onLongPress: (event: GestureResponderEvent) => void;
   isFocused: boolean;
   routeName: string;
   label: string;
