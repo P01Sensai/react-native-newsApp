@@ -1,9 +1,10 @@
-import { Dimensions, StyleSheet, Text, View, Image } from 'react-native'
+import { Dimensions, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { NewsDataType } from '@/types'
 import Animated, { Extrapolation, interpolate, SharedValue, useAnimatedStyle } from 'react-native-reanimated'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Colors } from '@/constants/Colors'
+import { Link } from 'expo-router'
 
 type Props = {
   slideItem: NewsDataType,
@@ -14,7 +15,7 @@ type Props = {
 const { width } = Dimensions.get('screen');
 
 const SliderItem = ({ slideItem, index, scrollX }: Props) => {
-  
+
   const rnStyle = useAnimatedStyle(() => {
     return {
       transform: [
@@ -37,22 +38,27 @@ const SliderItem = ({ slideItem, index, scrollX }: Props) => {
       ],
 
     };
-  });  
+  });
 
 
   return (
-    <Animated.View style={[styles.itemWrapper, rnStyle]} key={slideItem.article_id}>
-      <Image source={{ uri: slideItem.image_url }} style={styles.image} />
-      <LinearGradient colors={["transparent", 'rgba(0,0,0,0.8)']} style={styles.background}>
-        <View style={styles.srcInfo}>
-          {slideItem.source_icon && (
-            <Image source={{ uri: slideItem.source_icon }} style={styles.srcIcon} />
-          )}
-          <Text style={styles.srcName}>{slideItem.source_name}</Text>
-        </View>
-        <Text style={styles.title} numberOfLines={2}>{slideItem.title}</Text>
-      </LinearGradient>
-    </Animated.View>
+    // will see it later href problem
+    <Link href={`/news/${slideItem.article_id}`} asChild> 
+      <TouchableOpacity>
+        <Animated.View style={[styles.itemWrapper, rnStyle]} key={slideItem.article_id}>
+          <Image source={{ uri: slideItem.image_url }} style={styles.image} />
+          <LinearGradient colors={["transparent", 'rgba(0,0,0,0.8)']} style={styles.background}>
+            <View style={styles.srcInfo}>
+              {slideItem.source_icon && (
+                <Image source={{ uri: slideItem.source_icon }} style={styles.srcIcon} />
+              )}
+              <Text style={styles.srcName}>{slideItem.source_name}</Text>
+            </View>
+            <Text style={styles.title} numberOfLines={2}>{slideItem.title}</Text>
+          </LinearGradient>
+        </Animated.View>
+      </TouchableOpacity>
+    </Link>
   )
 }
 
@@ -60,14 +66,14 @@ export default SliderItem
 
 const styles = StyleSheet.create({
   itemWrapper: {
-    
+
     position: 'relative', // what it does that it will make the image and the background in the same position
-    width: width  ,
+    width: width,
     justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
-    width: width -60,
+    width: width - 60,
     height: 180,
     borderRadius: 20,
   },
