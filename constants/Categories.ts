@@ -2,7 +2,7 @@ const newsCategoryList = [
   {
     id: 1,
     title: 'All',
-    slug: '',
+    slug: '',  // empty string because api doesnt have any category for all
     selected: false,
   },
   {

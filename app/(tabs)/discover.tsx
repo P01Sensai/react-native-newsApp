@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Searchbar from '@/components/Searchbar'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Colors } from '@/constants/Colors'
@@ -15,9 +15,13 @@ const Page = (props: Props) => {
   const { top: safeTop } = useSafeAreaInsets();
   const {newscategories, toggleNewsCategory} = useNewsCategories();
   const {newscountry, toggleNewsCountry} = useNewsCountry();
+  const [searchQuery, setSearchQuery]= useState("");
+  const [category, setCategory]= useState("");
+  const [country, setCountry]= useState("");
+
   return (
     <View style={[styles.container, {paddingTop: safeTop + 20}]}>
-      <Searchbar withHorizontalPadding={false}/>
+      <Searchbar withHorizontalPadding={false} setSearchQuery={setSearchQuery}/>
       <Text style={styles.title}>Categories</Text>
       <View style={styles.ListContainer}>
         {/* here newscategories will update current selection on category */}
@@ -27,7 +31,8 @@ const Page = (props: Props) => {
           label={item.title} 
           checked={item.selected}  
           onPress={() => {
-            toggleNewsCategory(item.id) 
+            toggleNewsCategory(item.id) ;
+            setCategory(item.slug);
             // here id will provide the seletec category id and set it as a false or true to mark check
           }}/>
          ))}
@@ -42,7 +47,8 @@ const Page = (props: Props) => {
           label={item.name} 
           checked={item.selected}  
           onPress={() => {
-            toggleNewsCountry(index) 
+            toggleNewsCountry(index);
+            setCountry(item.code);  
             // here id will provide the selected country id and set it as a false or true to mark check
           }}/>
          ))}
