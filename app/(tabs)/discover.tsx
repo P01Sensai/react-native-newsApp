@@ -7,6 +7,7 @@ import newsCategoryList from '@/constants/Categories'
 import CheckBox from '@/components/CheckBox'
 import { useNewsCategories } from '@/hooks/useNewsCategories'
 import { useNewsCountry } from '@/hooks/useNewsCountryList'
+import { Link } from 'expo-router'
 
 type Props = {}
 
@@ -54,9 +55,15 @@ const Page = (props: Props) => {
          ))}
       </View>
 
+      <Link href={{
+        pathname: '/news/search',
+        params: {query: searchQuery, category, country }
+      }} asChild>
       <TouchableOpacity style={styles.searchBTN}>
         <Text style={styles.searchBTNText}>Search</Text>
       </TouchableOpacity>
+      
+      </Link>
     </View>
   )
 }
