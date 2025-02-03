@@ -22,6 +22,10 @@ const NewsDetails = (props: Props) => {
     useEffect(() => {
         getNews();
     }, []);
+    useEffect(() => {
+        if (!isLoading )
+        {renderBookmark(news[0].article_id);}
+    }, [isLoading])
 
     const getNews = async () => {
         try {
@@ -66,13 +70,25 @@ const NewsDetails = (props: Props) => {
 
     const removeBookmark = async (newsId: string) => {
         setBookmark(false);
-         const bookmark = await AsyncStorage.getItem("bookmark").then((token) => {
+        const bookmark = await AsyncStorage.getItem("bookmark").then((token) => {
             const res = JSON.parse(token);
             return res.filter((id: string) => id !== newsId);
 
         });
         await AsyncStorage.setItem("bookmark", JSON.stringify(bookmark));
         alert("News Removed!");
+    };
+
+    const renderBookmark = async (newsId: string) => {
+        const bookmark = await AsyncStorage.getItem("bookmark").then((token) => {
+            const res = JSON.parse(token);
+            if (res !== null) {
+                let data = res.find((value: string) => value === newsId);
+                return data == null? setBookmark(false): setBookmark(true);
+            }
+
+        });
+
     }
 
 
@@ -85,7 +101,9 @@ const NewsDetails = (props: Props) => {
                     </TouchableOpacity>
                 ),
                 headerRight: () => (
-                    <TouchableOpacity onPress={() => bookmark ? removeBookmark(news[0].article_id) : saveBookmark(news[0].article_id)} >
+                    <TouchableOpacity onPress={() =>
+                        bookmark ? removeBookmark(news[0].article_id) : saveBookmark(news[0].article_id)}
+                    >
                         <Ionicons
                             name={bookmark ? "heart" : "heart-outline"}
                             size={22}
