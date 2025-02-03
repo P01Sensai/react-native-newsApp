@@ -1,12 +1,15 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 import { Stack } from 'expo-router'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Colors } from '@/constants/Colors'
 
+
 type Props = {}
 
 const Page = (props: Props) => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <>
       <Stack.Screen options={{
@@ -34,9 +37,17 @@ const Page = (props: Props) => {
           <MaterialIcons name='arrow-forward' size={16} color={Colors.lightGrey} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.itembtn}>
+        <TouchableOpacity style={styles.itembtn} onPress={toggleSwitch}>
           <Text style={styles.itembtntxt}>Dark Mode</Text>
-          <MaterialIcons name='arrow-forward' size={16} color={Colors.lightGrey} />
+          <Switch 
+           trackColor={{ false: '#767577', true:'#3e3e3e' }}
+           thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+           ios_backgroundColor='#3e3e3e' //ios only
+            
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+            style={{transform: [{ scale: 1}], marginBottom: -15, marginRight: -8}}
+          />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.itembtn}>
@@ -68,7 +79,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     paddingHorizontal: 16,
     paddingVertical: 20,
-    borderBottomColor: Colors.lightGrey,
-    borderBottomWidth: 1,
+    borderBottomColor: Colors.tint,
+    borderBottomWidth: 0.8,
   },
+  
 })
