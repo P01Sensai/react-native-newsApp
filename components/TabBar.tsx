@@ -16,7 +16,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       width: e.nativeEvent.layout.width,
     });
   };
-  
+
   const tabPositionX = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -24,16 +24,26 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       transform: [{ translateX: tabPositionX.value }],
     };
   });
-  
+
   return (
     <View onLayout={onTabbarLayout} style={styles.tabbar}>
-      <Animated.View style={[animatedStyle, {
-        position: 'absolute',
+      {/* <Animated.View style={[animatedStyle, {
+        position: 'absolute', 
         backgroundColor: Colors.tint,
         top: 52,
         left: 34,
         height: 8,
         width: 40,
+      }]} /> */}
+
+      <Animated.View style={[animatedStyle, {
+        position: 'absolute',
+        backgroundColor: Colors.tint,
+        top: 52,
+        left: buttonWidth / 4,  // Adjust based on button width
+        height: 8,
+        width: buttonWidth / 2,  // Keep it within the tab bounds
+        borderRadius: 4,  // Rounded edges
       }]} />
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
@@ -41,16 +51,16 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
-            ? options.title
-            : route.name;
+              ? options.title
+              : route.name;
 
         const isFocused = state.index === index;
 
         const onPress = () => {
           tabPositionX.value = withTiming(buttonWidth * index, {
             duration: 200,
-          }); 
-          
+          });
+
           const event = navigation.emit({
             type: "tabPress",
             target: route.key,
@@ -88,7 +98,7 @@ const styles = StyleSheet.create({
   tabbar: {
     flexDirection: 'row',
     paddingTop: 16,
-    paddingBottom:40,
+    paddingBottom: 40,
     backgroundColor: Colors.white,
   }
 })
