@@ -51,7 +51,7 @@ const BreakingNews = ({ newsList }: Props) => {
     const ref = useAnimatedRef<Animated.FlatList<any>>();
     const scrollX = useSharedValue(0)
     const [paginationIndex, setPaginationIndex] = useState(0)
-    const [data, setData] = useState(newsList)
+    const [Data, setData] = useState(newsList)
 
     const onScrollHandler = useAnimatedScrollHandler({
         onScroll: (e) => {
@@ -100,7 +100,7 @@ const BreakingNews = ({ newsList }: Props) => {
 
                 <Animated.FlatList
                     ref={ref}
-                    data={data}
+                    data={Data}
                     keyExtractor={(_, index) => `list_items_${index}`}
                     renderItem={({ item, index }) => (
                         <SliderItem slideItem={item} index={index} scrollX={scrollX} />
@@ -112,7 +112,7 @@ const BreakingNews = ({ newsList }: Props) => {
                     onScroll={onScrollHandler} scrollEventThrottle={16}
                     contentContainerStyle={styles.flatListContent}
                     onEndReachedThreshold={0.7}
-                    onEndReached={() => setData([...data, ...newsList])}
+                    onEndReached={() => setData([...Data, ...newsList])}
                     // onEndReached={() => {
                     //     const newData = [...data, ...newsList];
                     //     console.log('Updated Data:', newData);

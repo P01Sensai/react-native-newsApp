@@ -20,7 +20,7 @@
     "@react-navigation/native": "^7.0.13",
     "axios": "^1.7.8",
     "dotenv": "^16.4.5",
-    "expo": "^52.0.28",
+    "expo": "^52.0.30",
     "expo-constants": "^17.0.5",
     "expo-font": "^13.0.3",
     "expo-linear-gradient": "^14.0.2",
