@@ -33,10 +33,17 @@ A modern **React Native News Application** built with Expo. The app fetches real
 - Clean & modular code structure for scalability.  
 
 ---
+ 
 
 ## 📸 Screenshots  
 
-| ![Home and Image Carousell](assets/home%20and%20Image%20carousell.png) | ![News Tabs](assets/news%20tabs.png) | ![Search and Categories](assets/search%20and%20categories.png) | ![Setting](assets/setting.png) |
+<p align="center">
+  <img src="assets/home%20and%20Image%20carousell.png" alt="Home and Image Carousell" width="180"/>
+  <img src="assets/news%20tabs.png" alt="News Tabs" width="180"/>
+  <img src="assets/search%20and%20categories.png" alt="Search and Categories" width="180"/>
+  <img src="assets/setting.png" alt="Setting" width="180"/>
+</p>
+
 
 
 ---
