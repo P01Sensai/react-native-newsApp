@@ -36,16 +36,11 @@ A modern **React Native News Application** built with Expo. The app fetches real
 
 ## 📸 Screenshots  
 
+| ![Home and Image Carousell](assets/home%20and%20Image%20carousell.png) | ![News Tabs](assets/news%20tabs.png) | ![Search and Categories](assets/search%20and%20categories.png) | ![Setting](assets/setting.png) |
 
 
 ---
 
-## 🎥 Demo Video
-[![Watch the video](assets/screenshots/demo-thumbnail.png)](https://your-video-link.com)  
-
-*(Click the thumbnail to watch the demo)*  
-
----
 
 ## 📦 Installation  
 
