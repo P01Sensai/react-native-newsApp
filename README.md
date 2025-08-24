@@ -56,3 +56,22 @@ A modern **React Native News Application** built with Expo. The app fetches real
    git clone https://github.com/P01Sensai/react-native-newsApp.git
    cd react-native-newsApp
 
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+
+3. **Start the Expo development server:**
+   ```bash
+   npx expo start
+
+4. **Run on your device or simulator:**
+
+   📱 Use the Expo Go app on your Android/iOS device and scan the QR code.
+
+   💻 Or run on an emulator/simulator from the Expo CLI menu.  
+
+
+---
+
