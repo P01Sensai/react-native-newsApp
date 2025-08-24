@@ -36,9 +36,7 @@ A modern **React Native News Application** built with Expo. The app fetches real
 
 ## 📸 Screenshots  
 
-| Home | Categories | Bookmarks | Login |
-|------|------------|-----------|-------|
-| ![Home](assets/screenshots/home.png) | ![Categories](assets/screenshots/categories.png) | ![Bookmarks](assets/screenshots/bookmarks.png) | ![Login](assets/screenshots/login.png) |
+
 
 ---
 
