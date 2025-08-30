@@ -5,7 +5,6 @@ A modern **React Native News Application** built with Expo. The app fetches real
 ---
 
 ## 🚀 Features
-- 📌 **Authentication** with Firebase (Login/Signup)  
 - 📰 **Trending News Feed** with animated FlatList  
 - 🔍 **Search by Category** for personalized browsing  
 - 📑 **Bookmark & Save** favorite articles  
