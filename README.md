@@ -16,8 +16,7 @@ A modern **React Native News Application** built with Expo. The app fetches real
 
 ## 🛠️ Tech Stack
 - **React Native** (Expo)  
-- **Axios** (API fetching)  
-- **Firebase Auth** (Login system)  
+- **Axios** (API fetching)   
 - **AsyncStorage** (Local storage for bookmarks)  
 - **Moment.js** (Date & time formatting)  
 - **Expo Linear Gradient** (UI enhancement)  
